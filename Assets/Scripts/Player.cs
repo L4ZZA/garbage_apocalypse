@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     Text healthDisplay;
     [SerializeField]
+    GameObject losePanel;
+    [SerializeField]
     float speed = 1;
     [SerializeField]
     int health = 1;
@@ -18,6 +20,7 @@ public class Player : MonoBehaviour
 
     Rigidbody2D playerBody;
     Animator animator;
+    AudioSource audio;
 
 
     const string RUNNING_PARAM_NAME = "isRunning";
@@ -27,6 +30,7 @@ public class Player : MonoBehaviour
     {
         playerBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audio = GetComponent<AudioSource>();
         healthDisplay.text = health.ToString();
     }
 
@@ -62,12 +66,16 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
+        audio.Play();
         health -= damageAmount;
-        healthDisplay.text = health.ToString();
 
         if (health <= 0)
         {
+            health = 0;
+            losePanel.SetActive(true);
             Destroy(gameObject);
         }
+
+        healthDisplay.text = health.ToString();
     }
 }
