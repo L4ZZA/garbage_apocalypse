@@ -35,5 +35,9 @@ public class Enemy : MonoBehaviour
             playerScript.TakeDamage(damage);
             Destroy(gameObject);
         }
+        if (other.tag == "Ground")
+        {
+            Destroy(gameObject);
+        }
     }
 }

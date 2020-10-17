@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         input = Input.GetAxisRaw("Horizontal");
-        playerBody.velocity = new Vector2(input * speed * Time.deltaTime, playerBody.velocity.y);
+        playerBody.velocity = new Vector2(input * speed, playerBody.velocity.y);
     }
 
     public void TakeDamage(int damageAmount)
