@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public static string LayerTag => "Player";
 
+    [SerializeField]
+    Text healthDisplay;
     [SerializeField]
     float speed = 1;
     [SerializeField]
@@ -24,6 +27,7 @@ public class Player : MonoBehaviour
     {
         playerBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        healthDisplay.text = health.ToString();
     }
 
     // Update is called once per frame
@@ -59,6 +63,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         health -= damageAmount;
+        healthDisplay.text = health.ToString();
 
         if (health <= 0)
         {

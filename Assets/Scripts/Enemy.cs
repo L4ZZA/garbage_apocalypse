@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     float maxSpeed;
     [SerializeField]
     Player playerScript;
+    [SerializeField]
+    GameObject explosion;
 
     float speed;
 
@@ -33,10 +35,12 @@ public class Enemy : MonoBehaviour
         if (other.tag == Player.LayerTag)
         {
             playerScript.TakeDamage(damage);
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         if (other.tag == "Ground")
         {
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
