@@ -17,6 +17,10 @@ public class Player : MonoBehaviour
     float speed = 1;
     [SerializeField]
     int health = 1;
+    [SerializeField]
+    AudioClip hitSound;
+    [SerializeField]
+    AudioClip dashSound;
 
     float input;
     public float startDashTime;
@@ -67,6 +71,8 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) && !isDashing)
             {
+                audioSource.clip = dashSound;
+                audioSource.Play();
                 speed += extraSpeed;
                 isDashing = true;
                 dashTime = startDashTime;
@@ -93,6 +99,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
+        audioSource.clip = hitSound;
         audioSource.Play();
         health -= damageAmount;
 

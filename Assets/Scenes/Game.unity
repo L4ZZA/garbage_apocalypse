@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.752, g: 0.752, b: 0.752, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -754,7 +754,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: db3df0b00312ff346941ef69bc868a8d, type: 3}
-  m_Color: {r: 0.508363, g: 0.5849056, b: 0.49937698, a: 1}
+  m_Color: {r: 0.31764707, g: 0.27058825, b: 0.3145098, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1677,6 +1677,8 @@ MonoBehaviour:
   dashShadow: {fileID: 3732452914266213679, guid: 7b1736886b5c3cf428fa69a70b19816a, type: 3}
   speed: 25
   health: 3
+  hitSound: {fileID: 8300000, guid: 80d6a4f67d710b945be08ce30c0a6e26, type: 3}
+  dashSound: {fileID: 8300000, guid: f1a33c24db7fd3a4a952edf5622a575c, type: 3}
   startDashTime: 0.1
   extraSpeed: 75
 --- !u!50 &945661987
@@ -2121,7 +2123,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1f777035009db3643bf51298b0dada86, type: 3}
-  m_Color: {r: 0.26486292, g: 0.6037736, b: 0.43840155, a: 1}
+  m_Color: {r: 0.48299998, g: 0.47359088, b: 0.47359088, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2805,7 +2807,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: db3df0b00312ff346941ef69bc868a8d, type: 3}
-  m_Color: {r: 0.508363, g: 0.5849056, b: 0.49937698, a: 1}
+  m_Color: {r: 0.31764707, g: 0.27058825, b: 0.3145098, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
