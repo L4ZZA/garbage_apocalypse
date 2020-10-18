@@ -1674,7 +1674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthDisplay: {fileID: 521163325}
   losePanel: {fileID: 226729571}
-  dashShadow: {fileID: 809626896901911670, guid: 5e684fe36f1bbe4468a0300536a97326, type: 3}
+  dashShadow: {fileID: 3732452914266213679, guid: 7b1736886b5c3cf428fa69a70b19816a, type: 3}
   speed: 25
   health: 3
   startDashTime: 0.1
