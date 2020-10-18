@@ -12,15 +12,21 @@ public class Player : MonoBehaviour
     [SerializeField]
     GameObject losePanel;
     [SerializeField]
+    GameObject dashShadow;
+    [SerializeField]
     float speed = 1;
     [SerializeField]
     int health = 1;
 
     float input;
+    public float startDashTime;
+    public float extraSpeed;
+    public bool isDashing { get; private set; }
+    private float dashTime;
 
     Rigidbody2D playerBody;
     Animator animator;
-    AudioSource audio;
+    AudioSource audioSource;
 
 
     const string RUNNING_PARAM_NAME = "isRunning";
@@ -30,7 +36,7 @@ public class Player : MonoBehaviour
     {
         playerBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         healthDisplay.text = health.ToString();
     }
 
@@ -56,6 +62,24 @@ public class Player : MonoBehaviour
             // zero rotation (so face left)
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space) && !isDashing)
+        {
+            speed += extraSpeed;
+            isDashing = true;
+            dashTime = startDashTime;
+            Instantiate(dashShadow, transform.position, Quaternion.identity);
+        }
+
+        if (dashTime <= 0 && isDashing)
+        {
+            speed -= extraSpeed;
+            isDashing = false;
+        }
+        else
+        {
+            dashTime -= extraSpeed;
+        }
     }
 
     void FixedUpdate()
@@ -66,7 +90,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        audio.Play();
+        audioSource.Play();
         health -= damageAmount;
 
         if (health <= 0)
