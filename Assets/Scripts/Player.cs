@@ -63,22 +63,25 @@ public class Player : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && !isDashing)
+        if(input != 0)
         {
-            speed += extraSpeed;
-            isDashing = true;
-            dashTime = startDashTime;
-            Instantiate(dashShadow, transform.position, Quaternion.identity);
-        }
+            if (Input.GetKeyDown(KeyCode.Space) && !isDashing)
+            {
+                speed += extraSpeed;
+                isDashing = true;
+                dashTime = startDashTime;
+                Instantiate(dashShadow, transform.position, Quaternion.identity);
+            }
 
-        if (dashTime <= 0 && isDashing)
-        {
-            speed -= extraSpeed;
-            isDashing = false;
-        }
-        else
-        {
-            dashTime -= extraSpeed;
+            if (dashTime <= 0 && isDashing)
+            {
+                speed -= extraSpeed;
+                isDashing = false;
+            }
+            else
+            {
+                dashTime -= Time.deltaTime;
+            }
         }
     }
 
