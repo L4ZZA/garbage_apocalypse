@@ -949,6 +949,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingsButton
       objectReference: {fileID: 0}
+    - target: {fileID: 470127081892063350, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1914151663711244544, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
       propertyPath: hoverSFX
       value: 
@@ -2080,7 +2084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 470127081892063305, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 15.95
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 470127081892063305, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
       propertyPath: m_SizeDelta.x
