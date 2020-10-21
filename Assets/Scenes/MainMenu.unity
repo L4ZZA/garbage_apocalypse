@@ -598,7 +598,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 20a01d9091796a54c957470b3cb7d8e8, type: 3}
     - target: {fileID: 2998255951771335915, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
       propertyPath: m_Volume
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
@@ -719,7 +719,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 20a01d9091796a54c957470b3cb7d8e8, type: 3}
     - target: {fileID: 2998255951771335915, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
       propertyPath: m_Volume
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
@@ -1076,7 +1076,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 20a01d9091796a54c957470b3cb7d8e8, type: 3}
     - target: {fileID: 2998255951771335915, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
       propertyPath: m_Volume
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
@@ -1518,7 +1518,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 20a01d9091796a54c957470b3cb7d8e8, type: 3}
     - target: {fileID: 2998255951771335915, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
       propertyPath: m_Volume
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
@@ -1896,7 +1896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 023417a8e4ea75f45a805b490968c758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverSFX: {fileID: 8300000, guid: 518abfb897da1be46bc692c5d38482ff, type: 3}
+  hoverSFX: {fileID: 8300000, guid: a70a8b565e084df4685d8fd99023c1f0, type: 3}
   clickSFX: {fileID: 0}
 --- !u!82 &1445520278
 AudioSource:
@@ -1910,7 +1910,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 7679007459064872795, guid: b6b85966cd4e75242966ceaf3140da16, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2381,7 +2381,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 20a01d9091796a54c957470b3cb7d8e8, type: 3}
     - target: {fileID: 2998255951771335915, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
       propertyPath: m_Volume
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
@@ -2617,7 +2617,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 20a01d9091796a54c957470b3cb7d8e8, type: 3}
     - target: {fileID: 2998255951771335915, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
       propertyPath: m_Volume
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
@@ -2902,7 +2902,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 20a01d9091796a54c957470b3cb7d8e8, type: 3}
     - target: {fileID: 2998255951771335915, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
       propertyPath: m_Volume
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84fc713ece97c5f4a97af40032327c35, type: 3}
