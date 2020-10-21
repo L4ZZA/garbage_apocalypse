@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 17.4, y: -26}
+  m_AnchoredPosition: {x: 17.400024, y: -26}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &62477215
@@ -1007,7 +1007,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3
+  m_Text: 0
 --- !u!222 &521163326
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1633,7 +1633,6 @@ GameObject:
   - component: {fileID: 945661987}
   - component: {fileID: 945661989}
   - component: {fileID: 945661986}
-  - component: {fileID: 945661991}
   - component: {fileID: 945661988}
   - component: {fileID: 945661990}
   m_Layer: 0
@@ -1676,9 +1675,9 @@ MonoBehaviour:
   losePanel: {fileID: 226729571}
   dashShadow: {fileID: 3732452914266213679, guid: 7b1736886b5c3cf428fa69a70b19816a, type: 3}
   speed: 25
-  health: 3
+  health: 5
   hitSound: {fileID: 8300000, guid: 80d6a4f67d710b945be08ce30c0a6e26, type: 3}
-  dashSound: {fileID: 8300000, guid: f1a33c24db7fd3a4a952edf5622a575c, type: 3}
+  dashSound: {fileID: 8300000, guid: 68d1ee4e7b0e5cb45a51fb1faa2ccefe, type: 3}
   startDashTime: 0.1
   extraSpeed: 75
 --- !u!50 &945661987
@@ -1843,18 +1842,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &945661991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945661984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a9477c2226b5fc4b82225fe9d97c4a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1021850214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2964,9 +2951,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 945661986}
   hazards:
-  - {fileID: 1083171700012798557, guid: 67c30caeae4797546b0a160c999ba44d, type: 3}
+  - {fileID: 4879837605267877234, guid: 617355add267efe4aac199a56491a874, type: 3}
   - {fileID: 3930874333129490389, guid: 37fe46544b67d394895c088043450290, type: 3}
   - {fileID: 7314332713722096100, guid: d5783c3a7a72aad47b8f3450d9c17c42, type: 3}
+  - {fileID: 8456582506910015537, guid: ad03b90bc6f24594fad3e7c2e13d7603, type: 3}
+  - {fileID: 4983767892744234920, guid: 20f9d55e0effa59488248b0ea7d66a37, type: 3}
+  - {fileID: 6345443058799616123, guid: 3ab896c78bc362340bb80bcfb595321c, type: 3}
   spawnPointsParent: {fileID: 630578337}
   startTimeBtwSpawns: 1.25
   minTimeBtwSpawns: 0.5
