@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
 
 
     const string RUNNING_PARAM_NAME = "isRunning";
+    const string DASH_PARAM_NAME = "Dash";
 
     // Start is called before the first frame update
     void Start()
@@ -71,10 +72,11 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) && !isDashing)
             {
+                isDashing = true;
+                animator.SetTrigger(DASH_PARAM_NAME);
                 audioSource.clip = dashSound;
                 audioSource.Play();
                 speed += extraSpeed;
-                isDashing = true;
                 dashTime = startDashTime;
                 Instantiate(dashShadow, transform.position, Quaternion.identity);
             }
