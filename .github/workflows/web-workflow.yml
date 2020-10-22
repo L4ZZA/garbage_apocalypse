@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push: { branches: [master] }
+
+env:
+  UNITY_VERSION: 2019.4.11f1
+  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+  BUILD_OUTPUT_PATH: build
+  BUILD_NAME: GarbageApocalypseWeb
+  RELEASE_NAME: Garbage Apocalypse Web
+  TARGET_PLATFORM: WebGL
+
+jobs:
+  build:
+    name: Web Build and deployment
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          # Relative path under $GITHUB_WORKSPACE to place the repository
+          # path: source
+          lfs: true
+
+      - name: Current folder path
+        run: pwd
+
+      - name: Directory content before build
+        run: ls -al
+
+      - name: Parent directory content before build
+        run: ls .. -al
+
+      # Cache
+      - uses: actions/cache@v1.1.0
+        with:
+          path: Library
+          key: Library
+
+      - name: Unity - Builder
+        uses: webbertakken/unity-builder@v1.4
+        with:
+          # Path where the builds should be stored.
+          buildsPath: ${{ env.BUILD_OUTPUT_PATH}}
+          buildName: ${{ env.BUILD_NAME}}
+          # Version of unity to use for building the project.
+          unityVersion: ${{ env.UNITY_VERSION }}
+          # Platform that the build should target.
+          targetPlatform: ${{ env.TARGET_PLATFORM }}
+          # Custom parameters to configure the build.
+          # Parameters must start with a hyphen (-) and may be followed by a value (without hyphen). Parameters without a value will be considered booleans (with a value of true).
+          customParameters: '-nographics' # <--- This is the important bit [https://github.com/webbertakken/unity-builder/issues/153]
+
+      - name: Directory content after build
+        run: ls -al
+
+      - name: Tree structure
+        run: |
+          sudo apt-get install tree
+          tree ${{ env.BUILD_OUTPUT_PATH}}
+
+      # Output
+      - uses: actions/upload-artifact@v1
+        with:
+          name: ${{ env.RELEASE_NAME }}
+          path: ${{ env.BUILD_OUTPUT_PATH}}/${{ env.TARGET_PLATFORM}}
