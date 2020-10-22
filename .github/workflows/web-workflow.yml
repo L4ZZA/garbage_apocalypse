@@ -4,24 +4,35 @@ on:
   push: { branches: [master] }
 
 env:
-  UNITY_VERSION: 2019.4.11f1
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+  BUTLER_API_KEY: ${{ secrets.BUTLER_CREDENTIALS }}
   BUILD_OUTPUT_PATH: build
+  ITCHIO_GAME: garbage-apocalypse
+  ITCHIO_USER: L4ZZA
   BUILD_NAME: GarbageApocalypseWeb
-  RELEASE_NAME: Garbage Apocalypse Web
-  TARGET_PLATFORM: WebGL
+  RELEASE_NAME: Garbage Apocalypse
+  BUTLER_PATH: ./butler_folder
 
 jobs:
   build:
     name: Web Build and deployment
     runs-on: ubuntu-latest
+    strategy:
+      # fail-fast: false
+      matrix:
+        unityVersion:
+          - 2019.4.11f1
+        targetPlatform:
+          - WebGL
+          # - StandaloneLinux64
+          #- StandaloneWindows64
+          #- StandaloneWindows
+          #- StandaloneOSX
     steps:
       # Checkout
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          # Relative path under $GITHUB_WORKSPACE to place the repository
-          # path: source
           lfs: true
 
       - name: Current folder path
@@ -30,14 +41,11 @@ jobs:
       - name: Directory content before build
         run: ls -al
 
-      - name: Parent directory content before build
-        run: ls .. -al
-
       # Cache
       - uses: actions/cache@v1.1.0
         with:
           path: Library
-          key: Library
+          key: Library-${{ matrix.targetPlatform }}
 
       - name: Unity - Builder
         uses: webbertakken/unity-builder@v1.4
@@ -46,9 +54,9 @@ jobs:
           buildsPath: ${{ env.BUILD_OUTPUT_PATH}}
           buildName: ${{ env.BUILD_NAME}}
           # Version of unity to use for building the project.
-          unityVersion: ${{ env.UNITY_VERSION }}
+          unityVersion: ${{ matrix.unityVersion }}
           # Platform that the build should target.
-          targetPlatform: ${{ env.TARGET_PLATFORM }}
+          targetPlatform: ${{ matrix.targetPlatform }}
           # Custom parameters to configure the build.
           # Parameters must start with a hyphen (-) and may be followed by a value (without hyphen). Parameters without a value will be considered booleans (with a value of true).
           customParameters: '-nographics' # <--- This is the important bit [https://github.com/webbertakken/unity-builder/issues/153]
@@ -62,7 +70,41 @@ jobs:
           tree ${{ env.BUILD_OUTPUT_PATH}}
 
       # Output
-      - uses: actions/upload-artifact@v1
+      - name: Archive
+        uses: actions/upload-artifact@v1
         with:
-          name: ${{ env.RELEASE_NAME }}
-          path: ${{ env.BUILD_OUTPUT_PATH}}/${{ env.TARGET_PLATFORM}}
+          name: ${{ env.RELEASE_NAME }}-${{matrix.targetPlatform}}-${{matrix.unityVersion}}
+          path: ${{ env.BUILD_OUTPUT_PATH}}/${{ matrix.targetPlatform }}
+
+#       - name: Butler download
+#         run: |
+#           # -L follows redirects
+#           # -O specifies output name
+#           # -s hides all errors and the progress bar
+#           # -S tells curl to be silent, except when there is an error
+#           curl -S -s -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+
+#       - name: Butler Unzip
+#         run: unzip butler.zip -d butler_folder
+
+#       - name: Make Butler executable
+#         # GNU unzip tends to not set the executable bit even though it's set in the .zip
+#         # mark extracted file as executable
+#         run: chmod +x ${{ env.BUTLER_PATH }}/butler
+
+#       - name: Butler test run
+#         # just a sanity check run (and also helpful in case you're sharing CI logs)
+#         run: ${{ env.BUTLER_PATH }}/butler -V
+
+#       - name: Directory content after Butler Download
+#         run: tree
+
+      - name: Butler Push
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ env.BUTLER_API_KEY }}
+          CHANNEL: html5
+          ITCH_GAME: ${{ env.ITCHIO_GAME }}
+          ITCH_USER: ${{ env.ITCHIO_USER }}
+          PACKAGE: build/${{ matrix.targetPlatform }}
+      # TODO - Create release https://github.com/marketplace/actions/upload-a-release-asset
