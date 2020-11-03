@@ -3187,7 +3187,7 @@ MonoBehaviour:
   - {fileID: 6345443058799616123, guid: 3ab896c78bc362340bb80bcfb595321c, type: 3}
   spawnPointsParent: {fileID: 630578337}
   startTimeBtwSpawns: 1.25
-  minTimeBtwSpawns: 0.05
+  minTimeBtwSpawns: 0.15
   decrease: 0.05
 --- !u!4 &1945273175
 Transform:
