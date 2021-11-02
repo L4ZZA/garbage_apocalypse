@@ -21,7 +21,7 @@ jobs:
       # fail-fast: false
       matrix:
         unityVersion:
-          - 2019.4.11f1
+          - 2020.3.21f1
         targetPlatform:
           - WebGL
           # - StandaloneLinux64
@@ -48,7 +48,7 @@ jobs:
           key: Library-${{ matrix.targetPlatform }}
 
       - name: Unity - Builder
-        uses: webbertakken/unity-builder@v1.4
+        uses: game-ci/unity-builder@v2
         with:
           # Path where the builds should be stored.
           buildsPath: ${{ env.BUILD_OUTPUT_PATH}}
